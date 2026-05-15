@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tanatoestetica III livello | Alta Formazione Funeraria</title>
+  <meta name="description" content="Tanatoestetica III livello - pagina corso." />
+  <style>
+    :root{
+      --navy:#031525; --navy-2:#061e33; --gold:#c9903c; --gold-2:#e2b15f;
+      --cream:#f6f1eb; --paper:#fffaf4; --text:#1d2430; --muted:#6c6f76;
+      --line:rgba(201,144,60,.35); --shadow:0 18px 50px rgba(3,21,37,.18);
+      --radius:18px;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;color:var(--text);background:var(--cream);line-height:1.5}
+    h1,h2,h3{font-family:Georgia,'Times New Roman',serif;line-height:1.05;margin:0;color:inherit}
+    a{text-decoration:none;color:inherit}.wrap{width:min(1180px,92vw);margin-inline:auto}.gold{color:var(--gold-2)}
+    .topbar{position:sticky;top:0;z-index:20;background:rgba(3,21,37,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:14px;color:white}.logo{width:116px;height:54px;background:white;border-radius:4px;display:grid;place-items:center;color:#0f4f77;font-family:Georgia,serif;font-size:30px;font-weight:700;letter-spacing:10px;padding-left:10px;box-shadow:0 10px 25px rgba(0,0,0,.18)}.brand small{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.72)}
+    .menu{display:flex;gap:26px;align-items:center;color:white;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}.menu a:hover,.menu a.active{color:var(--gold-2)}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1px solid var(--gold);border-radius:6px;padding:13px 20px;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;transition:.2s}.btn.primary{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:white;border:0}.btn.dark{color:white;background:rgba(3,21,37,.4)}.btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,.18)}
+    .hero{position:relative;min-height:560px;color:white;overflow:hidden;background:linear-gradient(90deg,rgba(3,21,37,.98),rgba(3,21,37,.72) 45%,rgba(3,21,37,.28)), radial-gradient(circle at 75% 40%,rgba(226,177,95,.28),transparent 28%), linear-gradient(135deg,#0b0e11,#2b2119 55%,#070b10)}.hero:before{content:"";position:absolute;inset:0;background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700"><rect width="1200" height="700" fill="none"/><g opacity=".18" fill="%23ffffff"><rect x="585" y="120" width="240" height="95" rx="6"/><rect x="610" y="245" width="300" height="38" rx="3"/><rect x="610" y="296" width="260" height="34" rx="3"/><circle cx="840" cy="385" r="54"/><rect x="800" y="440" width="175" height="36" rx="18"/></g><g opacity=".16" stroke="%23e2b15f" stroke-width="4"><path d="M690 335c80-28 165-22 232 18"/><path d="M720 420c72-18 150-14 216 11"/></g></svg>') center right/cover no-repeat;mix-blend-mode:screen}.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;min-height:560px;gap:42px}.kicker{color:var(--gold-2);font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:.15em;margin-bottom:14px}.hero h1{font-size:clamp(44px,6vw,76px);max-width:720px}.hero p{max-width:620px;color:rgba(255,255,255,.82);font-size:18px;margin:22px 0 30px}.hero-actions{display:flex;gap:14px;flex-wrap:wrap}.features{display:grid;gap:18px;justify-self:end;width:min(360px,100%)}.feature{background:rgba(3,21,37,.74);border:1px solid rgba(226,177,95,.35);border-radius:16px;padding:24px;box-shadow:var(--shadow)}.feature b{display:block;color:white;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}.feature span{color:rgba(255,255,255,.72);font-size:14px}
+    .section{padding:76px 0}.section-title{text-align:center;margin-bottom:36px}.section-title .kicker{margin-bottom:8px}.section-title h2{font-size:clamp(34px,4.5vw,54px);color:var(--navy)}.section-title p{max-width:760px;margin:14px auto 0;color:var(--muted)}
+    .courses{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.card{background:var(--paper);border:1px solid rgba(3,21,37,.08);border-radius:14px;overflow:hidden;box-shadow:0 12px 34px rgba(3,21,37,.08);display:flex;flex-direction:column}.thumb{height:140px;background:linear-gradient(135deg,rgba(3,21,37,.15),rgba(201,144,60,.18)),var(--img);background-size:cover;background-position:center;position:relative}.thumb:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(3,21,37,.18),transparent)}.card-body{padding:18px;display:flex;flex-direction:column;gap:12px;flex:1}.card h3{font-size:24px;color:var(--navy)}.card p{font-size:14px;color:var(--muted);margin:0;flex:1}.readmore{font-size:12px;font-weight:900;text-transform:uppercase;color:var(--navy);border-top:1px solid rgba(3,21,37,.08);padding-top:14px;display:flex;justify-content:space-between;align-items:center}.readmore span{color:var(--gold)}
+    .course-detail{background:var(--paper);border-top:1px solid rgba(3,21,37,.08);padding:76px 0}.course-detail:nth-of-type(even){background:#fbf6ef}.detail-head{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:stretch;margin-bottom:36px}.detail-intro{background:var(--navy);color:white;border-radius:var(--radius);padding:42px;box-shadow:var(--shadow);position:relative;overflow:hidden}.detail-intro:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 78% 20%,rgba(226,177,95,.2),transparent 30%)}.detail-intro>*{position:relative}.detail-intro h2{font-size:clamp(36px,4.3vw,58px)}.detail-intro p{color:rgba(255,255,255,.8);max-width:650px}.quick{background:var(--navy);color:white;border-radius:var(--radius);padding:34px;align-self:stretch}.quick h3{color:var(--gold-2);font-size:24px}.quick-item{padding:18px 0;border-bottom:1px solid rgba(255,255,255,.12);display:flex;gap:14px}.quick-item:last-child{border-bottom:0}.quick-item strong{display:block;text-transform:uppercase;font-size:13px}.quick-item span{color:rgba(255,255,255,.75)}
+    .detail-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:36px}.panel{background:white;border:1px solid rgba(3,21,37,.08);border-radius:var(--radius);padding:30px;box-shadow:0 10px 28px rgba(3,21,37,.06)}.panel h3{font-family:Inter,system-ui,sans-serif;font-size:20px;text-transform:uppercase;letter-spacing:.06em;color:var(--navy);margin-bottom:22px}.line{width:48px;height:2px;background:var(--gold);margin-top:-12px;margin-bottom:22px}.target{display:flex;gap:16px;align-items:flex-start;color:var(--muted)}.icon{width:52px;height:52px;border-radius:50%;background:var(--navy);color:var(--gold-2);display:grid;place-items:center;flex:0 0 auto;font-size:24px}.checks{list-style:none;padding:0;margin:0;display:grid;gap:13px}.checks li{display:flex;gap:12px;align-items:flex-start}.checks li:before{content:"✓";width:22px;height:22px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-size:12px;flex:0 0 auto}.modules{margin-top:22px;display:grid;gap:10px}.module{display:grid;grid-template-columns:70px 1fr 28px;align-items:center;background:#fbf8f3;border:1px solid rgba(3,21,37,.08);border-radius:10px;overflow:hidden}.num{background:var(--navy);color:var(--gold-2);font-family:Georgia,serif;font-size:26px;padding:18px;text-align:center}.modtext{padding:14px 18px}.modtext small{display:block;text-transform:uppercase;color:var(--muted);font-size:10px;font-weight:800}.modtext b{font-family:Georgia,serif;color:var(--navy);font-size:18px}.cta{margin-top:34px;background:var(--navy);color:white;border-radius:var(--radius);padding:28px 34px;display:flex;align-items:center;justify-content:space-between;gap:20px}.cta h3{font-size:30px}.cta p{margin:6px 0 0;color:rgba(255,255,255,.78)}
+    footer{background:var(--navy);color:white;padding:42px 0 18px}.footer-grid{display:grid;grid-template-columns:1.3fr .8fr .8fr .8fr;gap:30px}.footer-grid p,.footer-grid a{color:rgba(255,255,255,.72);font-size:14px}.footer-grid h4{text-transform:uppercase;font-size:13px;letter-spacing:.08em}.copyright{border-top:1px solid rgba(255,255,255,.1);margin-top:28px;padding-top:16px;color:rgba(255,255,255,.5);font-size:12px;display:flex;justify-content:space-between}
+    .mobile-toggle{display:none;color:white;font-size:28px}@media (max-width:980px){.menu{display:none}.mobile-toggle{display:block}.hero .wrap,.detail-head,.detail-grid{grid-template-columns:1fr}.features{justify-self:stretch}.courses{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr}.hero{min-height:auto}.hero .wrap{padding:70px 0;min-height:auto}.cta{align-items:flex-start;flex-direction:column}}@media (max-width:620px){.nav{height:70px}.logo{width:88px;height:44px;font-size:22px}.courses{grid-template-columns:1fr}.section,.course-detail{padding:54px 0}.detail-intro,.quick,.panel{padding:24px}.module{grid-template-columns:58px 1fr 24px}.footer-grid,.copyright{grid-template-columns:1fr;display:grid;gap:18px}.hero-actions{flex-direction:column}.btn{width:100%}}
+  </style>
+<style>
+body, h1, h2, h3, h4, h5, h6, p, a, button, li {
+    font-family: 'Cinzel', serif !important;
+}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  .page-course-hero{padding:76px 0 0;background:var(--cream)}
+  .page-course-hero .back-home{display:inline-flex;margin-bottom:24px;color:var(--navy);font-weight:900;text-transform:uppercase;font-size:12px;letter-spacing:.06em}
+  .course-page-main .course-detail{padding-top:42px}
+  .course-page-main .course-detail:first-of-type{border-top:0}
+</style>
+
+
+<style>
+  .program-panel{
+    margin-top:36px;
+  }
+  .program-panel .modules{
+    margin-top:0;
+  }
+</style>
+
+<style>
+
+/* --- E-COMMERCE CORSI --- */
+.shop-link{position:relative}
+.shop-count{
+  display:inline-grid;place-items:center;min-width:19px;height:19px;margin-left:6px;
+  border-radius:999px;background:linear-gradient(135deg,var(--gold),var(--gold-2));
+  color:#fff;font-size:11px;font-weight:900;line-height:1;
+}
+.ecommerce-box{
+  margin-top:36px;background:linear-gradient(135deg,var(--navy),var(--navy-2));color:white;
+  border-radius:var(--radius);padding:34px;box-shadow:var(--shadow);
+  display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:center;position:relative;overflow:hidden;
+}
+.ecommerce-box:before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 86% 20%,rgba(226,177,95,.24),transparent 34%);
+  pointer-events:none;
+}
+.ecommerce-box>*{position:relative}
+.ecommerce-box h3{color:white;font-size:32px;margin-bottom:10px}
+.ecommerce-box p{color:rgba(255,255,255,.78);margin:0}
+.price-card{
+  background:rgba(255,255,255,.08);border:1px solid rgba(226,177,95,.35);
+  border-radius:16px;padding:22px;
+}
+.price-label{
+  display:block;color:rgba(255,255,255,.68);text-transform:uppercase;
+  letter-spacing:.08em;font-size:12px;font-weight:900;margin-bottom:6px;
+}
+.price-value{
+  color:var(--gold-2);font-family:Georgia,'Times New Roman',serif;
+  font-size:34px;line-height:1;margin-bottom:18px;
+}
+.shop-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn.shop-secondary{color:white;background:rgba(255,255,255,.06)}
+.cart-page{padding:76px 0;background:var(--cream)}
+.cart-layout{display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:start}
+.cart-panel{
+  background:var(--paper);border:1px solid rgba(3,21,37,.08);
+  border-radius:var(--radius);box-shadow:0 12px 34px rgba(3,21,37,.08);padding:28px;
+}
+.cart-item{
+  display:grid;grid-template-columns:1fr auto;gap:16px;padding:18px 0;
+  border-bottom:1px solid rgba(3,21,37,.08);
+}
+.cart-item:last-child{border-bottom:0}
+.cart-item h3{color:var(--navy);font-size:24px;margin-bottom:6px}
+.cart-item p{color:var(--muted);margin:0;font-size:14px}
+.cart-remove{
+  border:1px solid rgba(3,21,37,.14);background:white;border-radius:999px;
+  padding:8px 12px;cursor:pointer;font-weight:800;
+}
+.checkout-form{display:grid;gap:13px}
+.checkout-form label{
+  display:grid;gap:6px;color:var(--navy);font-weight:800;font-size:13px;
+  text-transform:uppercase;letter-spacing:.04em;
+}
+.checkout-form input,.checkout-form textarea{
+  width:100%;border:1px solid rgba(3,21,37,.14);border-radius:10px;
+  padding:13px 14px;font:inherit;background:white;
+}
+.checkout-note{color:var(--muted);font-size:13px;margin:10px 0 0}
+.empty-cart{color:var(--muted);margin:0}
+.home-ecommerce-cta{margin-top:42px}
+@media(max-width:980px){.ecommerce-box,.cart-layout{grid-template-columns:1fr}}
+
+</style>
+
+
+
+
+<style>
+  /* Logo Alta Formazione Funeraria - versione pulita e proporzionata */
+  .brand{
+    gap: 0 !important;
+    align-items: center !important;
+  }
+  .brand small{
+    display:none !important;
+  }
+  .logo.logo-image{
+    width: 142px !important;
+    height: 68px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    overflow: visible !important;
+    letter-spacing: 0 !important;
+  }
+  .logo.logo-image img{
+    width: 142px !important;
+    height: 68px !important;
+    object-fit: contain !important;
+    display: block !important;
+    border-radius: 0 !important;
+  }
+  .footer-logo{
+    width: 180px !important;
+    height: 86px !important;
+    margin-bottom: 14px !important;
+    justify-content: flex-start !important;
+  }
+  .footer-logo img{
+    width: 180px !important;
+    height: 86px !important;
+  }
+  @media (max-width: 980px){
+    .logo.logo-image,
+    .logo.logo-image img{
+      width: 126px !important;
+      height: 60px !important;
+    }
+    .footer-logo,
+    .footer-logo img{
+      width: 160px !important;
+      height: 76px !important;
+    }
+  }
+  @media (max-width: 620px){
+    .logo.logo-image,
+    .logo.logo-image img{
+      width: 110px !important;
+      height: 52px !important;
+    }
+    .footer-logo,
+    .footer-logo img{
+      width: 145px !important;
+      height: 70px !important;
+    }
+  }
+</style>
+
+</head>
+<body>
+<header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="index.html#home"><div class="logo logo-image"><img src="assets/logo-alta-formazione-funeraria-clean.png" alt="Alta Formazione Funeraria"></div></a>
+      <nav class="menu" aria-label="Navigazione principale"><a href="index.html#home">Home</a><a class="active" href="index.html#corsi">I corsi</a><a href="index.html#programma">Programma</a><a href="index.html#formazione">Formazione aziendale</a><a href="index.html#chi-siamo">Chi siamo</a><a href="index.html#partner">Partner</a><a href="#contatti">Contatti</a><a class="shop-link" href="carrello.html">Carrello <span class="shop-count" data-cart-count>0</span></a><a class="btn dark" href="#contatti">Richiedi informazioni</a></nav>
+      <div class="mobile-toggle">☰</div>
+    </div>
+  </header>
+<main class="course-page-main">
+  <section class="page-course-hero">
+    <div class="wrap">
+      <a class="back-home" href="index.html#corsi">← Torna ai corsi</a>
+    </div>
+  </section>
+  <section class="course-detail" id="tanato3"><div class="wrap"><div class="detail-head"><div class="detail-intro"><div class="kicker">Corso</div><h2>Tanatoestetica <span class="gold">III livello</span></h2><p>Percorso avanzato per riprendere e perfezionare i principali fondamenti della tanatoestetica attraverso attività pratiche mirate e affiancamento costante.</p></div><aside class="quick"><h3>Info rapide</h3><div class="quick-item">⏱️<div><strong>Durata</strong><span>30 ore</span></div></div><div class="quick-item">📍<div><strong>Modalità</strong><span>In presenza</span></div></div><div class="quick-item">👥<div><strong>Posti</strong><span>Max 5 persone</span></div></div></aside></div><div class="detail-grid" id="programma-corso"><div class="panel"><h3>A chi è rivolto</h3><div class="line"></div><div class="target"><div class="icon">🎓</div><p>Esclusivamente a chi ha svolto la prima e la seconda parte del corso di tanatoestetica.</p></div></div><div class="panel"><h3>Cosa imparerai</h3><div class="line"></div><ul class="checks"><li>Approfondimento avanzato delle tecniche di tanatoestetica</li><li>Esercitazioni pratiche con affiancamento costante</li><li>Applicazione professionale di procedure operative più complesse</li><li>Precisione, autonomia e sicurezza nelle preparazioni</li></ul></div></div>
+<div class="program-panel panel">
+  <h3>Programma del corso</h3>
+  <div class="line"></div>
+  <div class="modules"><div class="module"><div class="num">01</div><div class="modtext"><small>Modulo 1</small><b>Pratico e di approfondimento</b></div><div>⌄</div></div></div>
+</div>
+
+<div class="ecommerce-box">
+  <div>
+    <div class="kicker">Acquisto online</div>
+    <h3>Iscriviti al corso</h3>
+    <p>Aggiungi il corso al carrello e invia la richiesta di acquisto/iscrizione online. Il pagamento effettivo potrà essere collegato successivamente a Stripe, PayPal o altro gateway.</p>
+  </div>
+  <div class="price-card">
+    <span class="price-label">Prezzo</span>
+    <div class="price-value">Prezzo su richiesta</div>
+    <div class="shop-actions">
+      <button class="btn primary" type="button" onclick="addToCart('tanatoestetica-3')">Aggiungi al carrello</button>
+      <button class="btn shop-secondary" type="button" onclick="buyNow('tanatoestetica-3')">Acquista ora</button>
+    </div>
+  </div>
+</div>
+
+</div></section>
+</main>
+<footer id="contatti">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div><div class="logo logo-image footer-logo"><img src="assets/logo-alta-formazione-funeraria-clean.png" alt="Alta Formazione Funeraria"></div><p>Formazione professionale e specialistica per operatori funerari, aziende e professionisti.</p></div>
+        <div><h4>Link rapidi</h4><p><a href="index.html#home">Home</a><br><a href="index.html#corsi">I corsi</a><br><a href="index.html#programma">Programma</a><br><a href="index.html#formazione">Formazione aziendale</a><br><a href="index.html#chi-siamo">Chi siamo</a></p></div>
+        <div><h4>Contatti</h4><p>+39 123 456 7890<br>info@a-for.it<br>Via Roma, 1 - 00100 Roma (RM)</p></div>
+        <div><h4>Seguici</h4><p>Facebook · Instagram · LinkedIn</p></div>
+      </div>
+      <div class="copyright"><span>© 2024 A-FOR Formazione Funeraria. Tutti i diritti riservati.</span><span>Privacy Policy · Cookie Policy</span></div>
+    </div>
+  </footer>
+<script>
+
+const COURSE_CATALOG = {
+  "tanatoestetica-1": {
+    "id": "tanatoestetica-1",
+    "title": "Tanatoestetica I livello",
+    "duration": "16 ore",
+    "mode": "In presenza",
+    "price": null,
+    "file": "tanatoestetica-1.html"
+  },
+  "tanatoestetica-2": {
+    "id": "tanatoestetica-2",
+    "title": "Tanatoestetica II livello",
+    "duration": "18 ore",
+    "mode": "In presenza",
+    "price": null,
+    "file": "tanatoestetica-2.html"
+  },
+  "tanatoestetica-3": {
+    "id": "tanatoestetica-3",
+    "title": "Tanatoestetica III livello",
+    "duration": "30 ore",
+    "mode": "In presenza",
+    "price": null,
+    "file": "tanatoestetica-3.html"
+  },
+  "cerimoniere-1": {
+    "id": "cerimoniere-1",
+    "title": "Cerimoniere funebre I livello",
+    "duration": "21 ore",
+    "mode": "In presenza",
+    "price": null,
+    "file": "cerimoniere-1.html"
+  },
+  "cerimoniere-2": {
+    "id": "cerimoniere-2",
+    "title": "Cerimoniere funebre II livello",
+    "duration": "24 ore",
+    "mode": "In presenza",
+    "price": null,
+    "file": "cerimoniere-2.html"
+  },
+  "riti-lutto": {
+    "id": "riti-lutto",
+    "title": "Riti che accompagnano i giovani in lutto",
+    "duration": "6 ore",
+    "mode": "Online",
+    "price": null,
+    "file": "riti-lutto.html"
+  },
+  "comunicazione-efficace": {
+    "id": "comunicazione-efficace",
+    "title": "Operatore funerario e comunicazione efficace",
+    "duration": "6 ore",
+    "mode": "Online",
+    "price": null,
+    "file": "comunicazione-efficace.html"
+  }
+};
+
+function getCart(){
+  try { return JSON.parse(localStorage.getItem("aff_cart") || "[]"); }
+  catch(e) { return []; }
+}
+
+function saveCart(cart){
+  localStorage.setItem("aff_cart", JSON.stringify(cart));
+  updateCartCount();
+}
+
+function updateCartCount(){
+  const count = getCart().length;
+  document.querySelectorAll("[data-cart-count]").forEach(el => el.textContent = count);
+}
+
+function formatPrice(value){
+  if(value === null || value === undefined || value === "") return "Prezzo su richiesta";
+  return new Intl.NumberFormat("it-IT", {style:"currency", currency:"EUR"}).format(value);
+}
+
+function addToCart(courseId){
+  const course = COURSE_CATALOG[courseId];
+  if(!course) return;
+  const cart = getCart();
+  if(!cart.find(item => item.id === courseId)) cart.push({id: courseId, qty: 1});
+  saveCart(cart);
+  window.location.href = "carrello.html";
+}
+
+function buyNow(courseId){
+  addToCart(courseId);
+}
+
+function removeFromCart(courseId){
+  saveCart(getCart().filter(item => item.id !== courseId));
+  renderCart();
+}
+
+function renderCart(){
+  const list = document.querySelector("[data-cart-list]");
+  const total = document.querySelector("[data-cart-total]");
+  const hidden = document.querySelector('input[name="courses"]');
+  if(!list) return;
+
+  const cart = getCart();
+  if(cart.length === 0){
+    list.innerHTML = '<p class="empty-cart">Il carrello è vuoto. Torna alla sezione corsi e scegli un percorso formativo.</p>';
+    if(total) total.textContent = "Nessun corso selezionato";
+    if(hidden) hidden.value = "";
+    return;
+  }
+
+  let numericTotal = 0;
+  let hasOnlyNumeric = true;
+
+  list.innerHTML = cart.map(item => {
+    const c = COURSE_CATALOG[item.id];
+    if(!c) return "";
+    if(typeof c.price === "number") numericTotal += c.price;
+    else hasOnlyNumeric = false;
+    return `
+      <div class="cart-item">
+        <div>
+          <h3>${c.title}</h3>
+          <p>${c.duration} · ${c.mode}</p>
+          <p><strong>${formatPrice(c.price)}</strong></p>
+        </div>
+        <button class="cart-remove" type="button" onclick="removeFromCart('${item.id}')">Rimuovi</button>
+      </div>
+    `;
+  }).join("");
+
+  if(total) total.textContent = hasOnlyNumeric ? formatPrice(numericTotal) : "Da confermare in fase di iscrizione";
+  if(hidden) hidden.value = cart.map(item => COURSE_CATALOG[item.id]?.title).filter(Boolean).join(", ");
+}
+
+function submitCheckout(event){
+  event.preventDefault();
+  const form = event.currentTarget;
+  const selectedCourses = getCart().map(item => COURSE_CATALOG[item.id]?.title).filter(Boolean).join(", ");
+
+  const name = form.querySelector('[name="name"]').value.trim();
+  const email = form.querySelector('[name="email"]').value.trim();
+  const phone = form.querySelector('[name="phone"]').value.trim();
+  const company = form.querySelector('[name="company"]').value.trim();
+  const notes = form.querySelector('[name="notes"]').value.trim();
+
+  const subject = encodeURIComponent("Richiesta acquisto online corsi");
+  const body = encodeURIComponent(
+`Buongiorno,
+
+vorrei procedere con l'acquisto/iscrizione ai seguenti corsi:
+${selectedCourses || "Nessun corso selezionato"}
+
+Dati partecipante / azienda:
+Nome: ${name}
+Email: ${email}
+Telefono: ${phone}
+Azienda: ${company}
+
+Note:
+${notes}
+
+Resto in attesa delle indicazioni per completare il pagamento online.
+
+Cordiali saluti`
+  );
+
+  window.location.href = `mailto:info@a-for.it?subject=${subject}&body=${body}`;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  updateCartCount();
+  renderCart();
+});
+
+</script>
+</body>
+</html>

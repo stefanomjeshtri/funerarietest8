@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carrello corsi | Alta Formazione Funeraria</title>
+  <style>
+    :root{
+      --navy:#031525; --navy-2:#061e33; --gold:#c9903c; --gold-2:#e2b15f;
+      --cream:#f6f1eb; --paper:#fffaf4; --text:#1d2430; --muted:#6c6f76;
+      --line:rgba(201,144,60,.35); --shadow:0 18px 50px rgba(3,21,37,.18);
+      --radius:18px;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font-family:'Cinzel',serif;color:var(--text);background:var(--cream);line-height:1.5}
+    h1,h2,h3{font-family:'Cinzel',serif;line-height:1.05;margin:0;color:inherit}
+    a{text-decoration:none;color:inherit}.wrap{width:min(1180px,92vw);margin-inline:auto}
+    .topbar{position:sticky;top:0;z-index:20;background:rgba(3,21,37,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:14px;color:white}.logo{width:116px;height:54px;background:white;border-radius:4px;display:grid;place-items:center;color:#0f4f77;font-family:Georgia,serif;font-size:30px;font-weight:700;letter-spacing:10px;padding-left:10px;box-shadow:0 10px 25px rgba(0,0,0,.18)}.brand small{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.72)}
+    .menu{display:flex;gap:26px;align-items:center;color:white;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}.menu a:hover,.menu a.active{color:var(--gold-2)}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1px solid var(--gold);border-radius:6px;padding:13px 20px;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;transition:.2s}.btn.primary{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:white;border:0}.btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,.18)}
+    .section-title{text-align:center;margin-bottom:36px}.section-title h1{font-size:clamp(40px,5vw,64px);color:var(--navy)}.section-title p{max-width:760px;margin:14px auto 0;color:var(--muted)}.kicker{color:var(--gold-2);font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:.15em;margin-bottom:14px}
+    footer{background:var(--navy);color:white;padding:42px 0 18px}.footer-grid{display:grid;grid-template-columns:1.3fr .8fr .8fr .8fr;gap:30px}.footer-grid p,.footer-grid a{color:rgba(255,255,255,.72);font-size:14px}.footer-grid h4{text-transform:uppercase;font-size:13px;letter-spacing:.08em}.copyright{border-top:1px solid rgba(255,255,255,.1);margin-top:28px;padding-top:16px;color:rgba(255,255,255,.5);font-size:12px;display:flex;justify-content:space-between}
+    @media(max-width:980px){.menu{display:none}.footer-grid{grid-template-columns:1fr 1fr}}@media(max-width:620px){.footer-grid,.copyright{grid-template-columns:1fr;display:grid;gap:18px}.logo{width:88px;height:44px;font-size:22px}}
+    
+/* --- E-COMMERCE CORSI --- */
+.shop-link{position:relative}
+.shop-count{
+  display:inline-grid;place-items:center;min-width:19px;height:19px;margin-left:6px;
+  border-radius:999px;background:linear-gradient(135deg,var(--gold),var(--gold-2));
+  color:#fff;font-size:11px;font-weight:900;line-height:1;
+}
+.ecommerce-box{
+  margin-top:36px;background:linear-gradient(135deg,var(--navy),var(--navy-2));color:white;
+  border-radius:var(--radius);padding:34px;box-shadow:var(--shadow);
+  display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:center;position:relative;overflow:hidden;
+}
+.ecommerce-box:before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 86% 20%,rgba(226,177,95,.24),transparent 34%);
+  pointer-events:none;
+}
+.ecommerce-box>*{position:relative}
+.ecommerce-box h3{color:white;font-size:32px;margin-bottom:10px}
+.ecommerce-box p{color:rgba(255,255,255,.78);margin:0}
+.price-card{
+  background:rgba(255,255,255,.08);border:1px solid rgba(226,177,95,.35);
+  border-radius:16px;padding:22px;
+}
+.price-label{
+  display:block;color:rgba(255,255,255,.68);text-transform:uppercase;
+  letter-spacing:.08em;font-size:12px;font-weight:900;margin-bottom:6px;
+}
+.price-value{
+  color:var(--gold-2);font-family:Georgia,'Times New Roman',serif;
+  font-size:34px;line-height:1;margin-bottom:18px;
+}
+.shop-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn.shop-secondary{color:white;background:rgba(255,255,255,.06)}
+.cart-page{padding:76px 0;background:var(--cream)}
+.cart-layout{display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:start}
+.cart-panel{
+  background:var(--paper);border:1px solid rgba(3,21,37,.08);
+  border-radius:var(--radius);box-shadow:0 12px 34px rgba(3,21,37,.08);padding:28px;
+}
+.cart-item{
+  display:grid;grid-template-columns:1fr auto;gap:16px;padding:18px 0;
+  border-bottom:1px solid rgba(3,21,37,.08);
+}
+.cart-item:last-child{border-bottom:0}
+.cart-item h3{color:var(--navy);font-size:24px;margin-bottom:6px}
+.cart-item p{color:var(--muted);margin:0;font-size:14px}
+.cart-remove{
+  border:1px solid rgba(3,21,37,.14);background:white;border-radius:999px;
+  padding:8px 12px;cursor:pointer;font-weight:800;
+}
+.checkout-form{display:grid;gap:13px}
+.checkout-form label{
+  display:grid;gap:6px;color:var(--navy);font-weight:800;font-size:13px;
+  text-transform:uppercase;letter-spacing:.04em;
+}
+.checkout-form input,.checkout-form textarea{
+  width:100%;border:1px solid rgba(3,21,37,.14);border-radius:10px;
+  padding:13px 14px;font:inherit;background:white;
+}
+.checkout-note{color:var(--muted);font-size:13px;margin:10px 0 0}
+.empty-cart{color:var(--muted);margin:0}
+.home-ecommerce-cta{margin-top:42px}
+@media(max-width:980px){.ecommerce-box,.cart-layout{grid-template-columns:1fr}}
+
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+
+
+<style>
+  /* Logo Alta Formazione Funeraria - versione pulita e proporzionata */
+  .brand{
+    gap: 0 !important;
+    align-items: center !important;
+  }
+  .brand small{
+    display:none !important;
+  }
+  .logo.logo-image{
+    width: 142px !important;
+    height: 68px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    overflow: visible !important;
+    letter-spacing: 0 !important;
+  }
+  .logo.logo-image img{
+    width: 142px !important;
+    height: 68px !important;
+    object-fit: contain !important;
+    display: block !important;
+    border-radius: 0 !important;
+  }
+  .footer-logo{
+    width: 180px !important;
+    height: 86px !important;
+    margin-bottom: 14px !important;
+    justify-content: flex-start !important;
+  }
+  .footer-logo img{
+    width: 180px !important;
+    height: 86px !important;
+  }
+  @media (max-width: 980px){
+    .logo.logo-image,
+    .logo.logo-image img{
+      width: 126px !important;
+      height: 60px !important;
+    }
+    .footer-logo,
+    .footer-logo img{
+      width: 160px !important;
+      height: 76px !important;
+    }
+  }
+  @media (max-width: 620px){
+    .logo.logo-image,
+    .logo.logo-image img{
+      width: 110px !important;
+      height: 52px !important;
+    }
+    .footer-logo,
+    .footer-logo img{
+      width: 145px !important;
+      height: 70px !important;
+    }
+  }
+</style>
+
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap nav">
+    <a class="brand" href="index.html#home"><div class="logo logo-image"><img src="assets/logo-alta-formazione-funeraria-clean.png" alt="Alta Formazione Funeraria"></div></a>
+    <nav class="menu">
+      <a href="index.html#home">Home</a>
+      <a href="index.html#corsi">Corsi</a>
+      <a href="index.html#programma">Programma</a>
+      <a href="index.html#partner">Partner</a>
+      <a href="index.html#contatti">Contatti</a>
+      <a class="shop-link active" href="carrello.html">Carrello <span class="shop-count" data-cart-count>0</span></a>
+    </nav>
+  </div>
+</header>
+
+<main class="cart-page">
+  <div class="wrap">
+    <div class="section-title">
+      <div class="kicker">E-commerce</div>
+      <h1>Carrello corsi</h1>
+      <p>Rivedi i corsi selezionati e invia la richiesta di acquisto/iscrizione online.</p>
+    </div>
+    <div class="cart-layout">
+      <section class="cart-panel">
+        <h2>Corsi selezionati</h2>
+        <div data-cart-list></div>
+      </section>
+      <aside class="cart-panel">
+        <h2>Checkout</h2>
+        <p class="checkout-note"><strong>Totale:</strong> <span data-cart-total>Da confermare</span></p>
+        <form class="checkout-form" onsubmit="submitCheckout(event)">
+          <input type="hidden" name="courses">
+          <label>Nome e cognome <input type="text" name="name" required></label>
+          <label>Email <input type="email" name="email" required></label>
+          <label>Telefono <input type="tel" name="phone" required></label>
+          <label>Azienda / ente <input type="text" name="company"></label>
+          <label>Note <textarea name="notes" rows="4" placeholder="Numero partecipanti, date preferite o richieste specifiche"></textarea></label>
+          <button class="btn primary" type="submit">Invia richiesta di acquisto</button>
+        </form>
+        <p class="checkout-note">Per incassare pagamenti reali è necessario collegare Stripe, PayPal o un altro gateway di pagamento.</p>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer id="contatti">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div><div class="logo logo-image footer-logo"><img src="assets/logo-alta-formazione-funeraria-clean.png" alt="Alta Formazione Funeraria"></div><p>Formazione professionale e specialistica per operatori funerari, aziende e professionisti.</p></div>
+      <div><h4>Link rapidi</h4><p><a href="index.html#home">Home</a><br><a href="index.html#corsi">Corsi</a><br><a href="index.html#programma">Programma</a><br><a href="index.html#partner">Partner</a></p></div>
+      <div><h4>Contatti</h4><p>+39 123 456 7890<br>info@a-for.it<br>Via Roma, 1 - 00100 Roma (RM)</p></div>
+      <div><h4>Seguici</h4><p>Facebook · Instagram · LinkedIn</p></div>
+    </div>
+    <div class="copyright"><span>© 2024 A-FOR Formazione Funeraria. Tutti i diritti riservati.</span><span>Privacy Policy · Cookie Policy</span></div>
+  </div>
+</footer>
+<script>
+
+const COURSE_CATALOG = {
+  "tanatoestetica-1": {
+    "id": "tanatoestetica-1",
+    "title": "Tanatoestetica I livello",
+    "duration": "16 ore",
+    "mode": "In presenza",
+    "price": null,
+    "file": "tanatoestetica-1.html"
+  },
+  "tanatoestetica-2": {
+    "id": "tanatoestetica-2",
+    "title": "Tanatoestetica II livello",
+    "duration": "18 ore",
+    "mode": "In presenza",
+    "price": null,
+    "file": "tanatoestetica-2.html"
+  },
+  "tanatoestetica-3": {
+    "id": "tanatoestetica-3",
+    "title": "Tanatoestetica III livello",
+    "duration": "30 ore",
+    "mode": "In presenza",
+    "price": null,
+    "file": "tanatoestetica-3.html"
+  },
+  "cerimoniere-1": {
+    "id": "cerimoniere-1",
+    "title": "Cerimoniere funebre I livello",
+    "duration": "21 ore",
+    "mode": "In presenza",
+    "price": null,
+    "file": "cerimoniere-1.html"
+  },
+  "cerimoniere-2": {
+    "id": "cerimoniere-2",
+    "title": "Cerimoniere funebre II livello",
+    "duration": "24 ore",
+    "mode": "In presenza",
+    "price": null,
+    "file": "cerimoniere-2.html"
+  },
+  "riti-lutto": {
+    "id": "riti-lutto",
+    "title": "Riti che accompagnano i giovani in lutto",
+    "duration": "6 ore",
+    "mode": "Online",
+    "price": null,
+    "file": "riti-lutto.html"
+  },
+  "comunicazione-efficace": {
+    "id": "comunicazione-efficace",
+    "title": "Operatore funerario e comunicazione efficace",
+    "duration": "6 ore",
+    "mode": "Online",
+    "price": null,
+    "file": "comunicazione-efficace.html"
+  }
+};
+
+function getCart(){
+  try { return JSON.parse(localStorage.getItem("aff_cart") || "[]"); }
+  catch(e) { return []; }
+}
+
+function saveCart(cart){
+  localStorage.setItem("aff_cart", JSON.stringify(cart));
+  updateCartCount();
+}
+
+function updateCartCount(){
+  const count = getCart().length;
+  document.querySelectorAll("[data-cart-count]").forEach(el => el.textContent = count);
+}
+
+function formatPrice(value){
+  if(value === null || value === undefined || value === "") return "Prezzo su richiesta";
+  return new Intl.NumberFormat("it-IT", {style:"currency", currency:"EUR"}).format(value);
+}
+
+function addToCart(courseId){
+  const course = COURSE_CATALOG[courseId];
+  if(!course) return;
+  const cart = getCart();
+  if(!cart.find(item => item.id === courseId)) cart.push({id: courseId, qty: 1});
+  saveCart(cart);
+  window.location.href = "carrello.html";
+}
+
+function buyNow(courseId){
+  addToCart(courseId);
+}
+
+function removeFromCart(courseId){
+  saveCart(getCart().filter(item => item.id !== courseId));
+  renderCart();
+}
+
+function renderCart(){
+  const list = document.querySelector("[data-cart-list]");
+  const total = document.querySelector("[data-cart-total]");
+  const hidden = document.querySelector('input[name="courses"]');
+  if(!list) return;
+
+  const cart = getCart();
+  if(cart.length === 0){
+    list.innerHTML = '<p class="empty-cart">Il carrello è vuoto. Torna alla sezione corsi e scegli un percorso formativo.</p>';
+    if(total) total.textContent = "Nessun corso selezionato";
+    if(hidden) hidden.value = "";
+    return;
+  }
+
+  let numericTotal = 0;
+  let hasOnlyNumeric = true;
+
+  list.innerHTML = cart.map(item => {
+    const c = COURSE_CATALOG[item.id];
+    if(!c) return "";
+    if(typeof c.price === "number") numericTotal += c.price;
+    else hasOnlyNumeric = false;
+    return `
+      <div class="cart-item">
+        <div>
+          <h3>${c.title}</h3>
+          <p>${c.duration} · ${c.mode}</p>
+          <p><strong>${formatPrice(c.price)}</strong></p>
+        </div>
+        <button class="cart-remove" type="button" onclick="removeFromCart('${item.id}')">Rimuovi</button>
+      </div>
+    `;
+  }).join("");
+
+  if(total) total.textContent = hasOnlyNumeric ? formatPrice(numericTotal) : "Da confermare in fase di iscrizione";
+  if(hidden) hidden.value = cart.map(item => COURSE_CATALOG[item.id]?.title).filter(Boolean).join(", ");
+}
+
+function submitCheckout(event){
+  event.preventDefault();
+  const form = event.currentTarget;
+  const selectedCourses = getCart().map(item => COURSE_CATALOG[item.id]?.title).filter(Boolean).join(", ");
+
+  const name = form.querySelector('[name="name"]').value.trim();
+  const email = form.querySelector('[name="email"]').value.trim();
+  const phone = form.querySelector('[name="phone"]').value.trim();
+  const company = form.querySelector('[name="company"]').value.trim();
+  const notes = form.querySelector('[name="notes"]').value.trim();
+
+  const subject = encodeURIComponent("Richiesta acquisto online corsi");
+  const body = encodeURIComponent(
+`Buongiorno,
+
+vorrei procedere con l'acquisto/iscrizione ai seguenti corsi:
+${selectedCourses || "Nessun corso selezionato"}
+
+Dati partecipante / azienda:
+Nome: ${name}
+Email: ${email}
+Telefono: ${phone}
+Azienda: ${company}
+
+Note:
+${notes}
+
+Resto in attesa delle indicazioni per completare il pagamento online.
+
+Cordiali saluti`
+  );
+
+  window.location.href = `mailto:info@a-for.it?subject=${subject}&body=${body}`;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  updateCartCount();
+  renderCart();
+});
+
+</script>
+</body>
+</html>
